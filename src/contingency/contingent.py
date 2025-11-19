@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x5aeb1dc4
+# __coconut_hash__ = 0x184cbc46
 
 # Compiled with Coconut version 3.1.2-post_dev7
 
@@ -3091,69 +3091,69 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
     y_true = _coconut.typing.cast(_coconut.typing.Any, _coconut.Ellipsis)  # type: Bool[nda, 'feat']  #64 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #64 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #64 (line in Coconut source)
-    __annotations__["y_true"] = "Bool[nda, 'feat']"  #64 (line in Coconut source)
+    __annotations__["y_true"] = Bool[nda, 'feat']  #64 (line in Coconut source)
     y_pred = _coconut.typing.cast(_coconut.typing.Any, _coconut.Ellipsis)  # type: Bool[nda, '*#batch feat']  #65 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #65 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #65 (line in Coconut source)
-    __annotations__["y_pred"] = "Bool[nda, '*#batch feat']"  #65 (line in Coconut source)
+    __annotations__["y_pred"] = Bool[nda, '*#batch feat']  #65 (line in Coconut source)
 
     weights = None  # type: _coconut.typing.Union[Num[nda, '*#batch'], None]  #67 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #67 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #67 (line in Coconut source)
-    __annotations__["weights"] = "_coconut.typing.Union[Num[nda, '*#batch'], None]"  #67 (line in Coconut source)
+    __annotations__["weights"] = _coconut.typing.Union[Num[nda, '*#batch'], None]  #67 (line in Coconut source)
 
     TP = field(init=False)  # type: Num  #69 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #69 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #69 (line in Coconut source)
-    __annotations__["TP"] = 'Num'  #69 (line in Coconut source)
+    __annotations__["TP"] = Num  #69 (line in Coconut source)
     FP = field(init=False)  # type: Num  #70 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #70 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #70 (line in Coconut source)
-    __annotations__["FP"] = 'Num'  #70 (line in Coconut source)
+    __annotations__["FP"] = Num  #70 (line in Coconut source)
     FN = field(init=False)  # type: Num  #71 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #71 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #71 (line in Coconut source)
-    __annotations__["FN"] = 'Num'  #71 (line in Coconut source)
+    __annotations__["FN"] = Num  #71 (line in Coconut source)
     TN = field(init=False)  # type: Num  #72 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #72 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #72 (line in Coconut source)
-    __annotations__["TN"] = 'Num'  #72 (line in Coconut source)
+    __annotations__["TN"] = Num  #72 (line in Coconut source)
 
 
     PP = field(init=False)  # type: Num  #75 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #75 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #75 (line in Coconut source)
-    __annotations__["PP"] = 'Num'  #75 (line in Coconut source)
+    __annotations__["PP"] = Num  #75 (line in Coconut source)
     PN = field(init=False)  # type: Num  #76 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #76 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #76 (line in Coconut source)
-    __annotations__["PN"] = 'Num'  #76 (line in Coconut source)
+    __annotations__["PN"] = Num  #76 (line in Coconut source)
     P = field(init=False)  # type: Num  #77 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #77 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #77 (line in Coconut source)
-    __annotations__["P"] = 'Num'  #77 (line in Coconut source)
+    __annotations__["P"] = Num  #77 (line in Coconut source)
     N = field(init=False)  # type: Num  #78 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #78 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #78 (line in Coconut source)
-    __annotations__["N"] = 'Num'  #78 (line in Coconut source)
+    __annotations__["N"] = Num  #78 (line in Coconut source)
 
 
     PPV = field(init=False)  # type: Num  #81 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #81 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #81 (line in Coconut source)
-    __annotations__["PPV"] = 'Num'  #81 (line in Coconut source)
+    __annotations__["PPV"] = Num  #81 (line in Coconut source)
     NPV = field(init=False)  # type: Num  #82 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #82 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #82 (line in Coconut source)
-    __annotations__["NPV"] = 'Num'  #82 (line in Coconut source)
+    __annotations__["NPV"] = Num  #82 (line in Coconut source)
     TPR = field(init=False)  # type: Num  #83 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #83 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #83 (line in Coconut source)
-    __annotations__["TPR"] = 'Num'  #83 (line in Coconut source)
+    __annotations__["TPR"] = Num  #83 (line in Coconut source)
     TNR = field(init=False)  # type: Num  #84 (line in Coconut source)
     if "__annotations__" not in _coconut.locals():  #84 (line in Coconut source)
         __annotations__ = {}  # type: ignore  #84 (line in Coconut source)
-    __annotations__["TNR"] = 'Num'  #84 (line in Coconut source)
+    __annotations__["TNR"] = Num  #84 (line in Coconut source)
 
     def __post_init__(self):  #86 (line in Coconut source)
         self.y_true = np.atleast_2d(self.y_true)  #87 (line in Coconut source)
@@ -3176,11 +3176,16 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
 
 
 
+    _coconut_typevar_T_0 = _coconut.typing.TypeVar("_coconut_typevar_T_0")  #106 (line in Coconut source)
+
     @classmethod  #106 (line in Coconut source)
     @_coconut_tco  #107 (line in Coconut source)
-    def from_scalar(cls, y_true, x  # type: _coconut.typing.Optional[PredProb]  #107 (line in Coconut source)
+    def from_scalar(cls,  # type: Type[_coconut_typevar_T_0]  #107 (line in Coconut source)
+        y_true,  # type: PredProb  #107 (line in Coconut source)
+        x,  # type: _coconut.typing.Optional[PredProb]  #107 (line in Coconut source)
+        subsample_factor=None  # type: _coconut.typing.Optional[int]  #107 (line in Coconut source)
         ):  #107 (line in Coconut source)
-# type: (...) -> _coconut.typing.Optional[T]
+# type: (...) -> _coconut.typing.Optional[_coconut_typevar_T_0]
         """ take scalar predictions and generate (batched) Contingent
 
         by default, x is rescaled to [0,1] and used as the weights parameter
@@ -3194,64 +3199,66 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
         Parameters:
             y_true: True pos/neg binary vector
             x: scalar weights for relative prediction strength (positive)
-        """  #125 (line in Coconut source)
+        """  #126 (line in Coconut source)
 # p, x_p = quantile_tf(x)
-        if x is None:  #127 (line in Coconut source)
-            warnings.warn("`None` value recieved, passing the buck...")  #128 (line in Coconut source)
-            return None  #129 (line in Coconut source)
-        p, x_p = minmax_tf(x)  #130 (line in Coconut source)
-        y_preds = np.less_equal.outer(p, x_p)  #131 (line in Coconut source)
+        if x is None:  #128 (line in Coconut source)
+            warnings.warn("`None` value recieved, passing the buck...")  #129 (line in Coconut source)
+            return None  #130 (line in Coconut source)
+        p, x_p = minmax_tf(x)  #131 (line in Coconut source)
+        if subsample_factor:  #132 (line in Coconut source)
+            x_p = np.interp(np.linspace(0, 1, x_p.shape[0] // subsample_factor), np.linspace(0, 1, x_p.shape[0]), x_p)  #133 (line in Coconut source)
+        y_preds = np.less_equal.outer(p, x_p)  #138 (line in Coconut source)
 
-        return _coconut_tail_call(cls, y_true, y_preds, weights=p)  #133 (line in Coconut source)
-
-
-
-
-    @_coconut_tco  #137 (line in Coconut source)
-    def f_beta(self, beta=1):  #137 (line in Coconut source)
-        return _coconut_tail_call(f_beta, beta, self)  #137 (line in Coconut source)
+        return _coconut_tail_call(cls, y_true, y_preds, weights=p)  #140 (line in Coconut source)
 
 
-    @property  #139 (line in Coconut source)
-    @_coconut_tco  #140 (line in Coconut source)
-    def F2(self):  #140 (line in Coconut source)
-        return _coconut_tail_call(f_beta, 2., self)  #140 (line in Coconut source)
 
 
-    @property  #142 (line in Coconut source)
-    @_coconut_tco  #143 (line in Coconut source)
-    def F(self):  #143 (line in Coconut source)
-        return _coconut_tail_call(F1, self)  #143 (line in Coconut source)
+    @_coconut_tco  #144 (line in Coconut source)
+    def f_beta(self, beta=1):  #144 (line in Coconut source)
+        return _coconut_tail_call(f_beta, beta, self)  #144 (line in Coconut source)
 
 
-    @property  #145 (line in Coconut source)
-    @_coconut_tco  #146 (line in Coconut source)
-    def recall(self):  #146 (line in Coconut source)
-        return _coconut_tail_call(recall, self)  #146 (line in Coconut source)
+    @property  #146 (line in Coconut source)
+    @_coconut_tco  #147 (line in Coconut source)
+    def F2(self):  #147 (line in Coconut source)
+        return _coconut_tail_call(f_beta, 2., self)  #147 (line in Coconut source)
 
 
-    @property  #148 (line in Coconut source)
-    @_coconut_tco  #149 (line in Coconut source)
-    def precision(self):  #149 (line in Coconut source)
-        return _coconut_tail_call(precision, self)  #149 (line in Coconut source)
+    @property  #149 (line in Coconut source)
+    @_coconut_tco  #150 (line in Coconut source)
+    def F(self):  #150 (line in Coconut source)
+        return _coconut_tail_call(F1, self)  #150 (line in Coconut source)
 
 
-    @property  #151 (line in Coconut source)
-    @_coconut_tco  #152 (line in Coconut source)
-    def mcc(self):  #152 (line in Coconut source)
-        return _coconut_tail_call(matthews_corrcoef, self)  #152 (line in Coconut source)
+    @property  #152 (line in Coconut source)
+    @_coconut_tco  #153 (line in Coconut source)
+    def recall(self):  #153 (line in Coconut source)
+        return _coconut_tail_call(recall, self)  #153 (line in Coconut source)
 
 
-    @property  #154 (line in Coconut source)
-    @_coconut_tco  #155 (line in Coconut source)
-    def G(self):  #155 (line in Coconut source)
-        return _coconut_tail_call(fowlkes_mallows, self)  #155 (line in Coconut source)
+    @property  #155 (line in Coconut source)
+    @_coconut_tco  #156 (line in Coconut source)
+    def precision(self):  #156 (line in Coconut source)
+        return _coconut_tail_call(precision, self)  #156 (line in Coconut source)
 
 
-    @typechecker  #157 (line in Coconut source)
-    @_coconut_tco  #158 (line in Coconut source)
-    def expected(self, mode='aps'  # type: ScoreOptions  #158 (line in Coconut source)
-        ):  #158 (line in Coconut source)
+    @property  #158 (line in Coconut source)
+    @_coconut_tco  #159 (line in Coconut source)
+    def mcc(self):  #159 (line in Coconut source)
+        return _coconut_tail_call(matthews_corrcoef, self)  #159 (line in Coconut source)
+
+
+    @property  #161 (line in Coconut source)
+    @_coconut_tco  #162 (line in Coconut source)
+    def G(self):  #162 (line in Coconut source)
+        return _coconut_tail_call(fowlkes_mallows, self)  #162 (line in Coconut source)
+
+
+    @typechecker  #164 (line in Coconut source)
+    @_coconut_tco  #165 (line in Coconut source)
+    def expected(self, mode='aps'  # type: ScoreOptions  #165 (line in Coconut source)
+        ):  #165 (line in Coconut source)
 # type: (...) -> float
         """
         A convenience function to calculate the expected value of a score.
@@ -3263,11 +3270,11 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
 
         Parameters:
             mode: available scores that can be aggregated over the y_pred probabilities
-        """  #169 (line in Coconut source)
-        if mode == 'aps':  #170 (line in Coconut source)
-            return _coconut_tail_call(avg_precision_score, self)  #171 (line in Coconut source)
-        else:  #172 (line in Coconut source)
-            return _coconut_tail_call(trapezoid, getattr(self, mode), x=self.weights)  #173 (line in Coconut source)
+        """  #176 (line in Coconut source)
+        if mode == 'aps':  #177 (line in Coconut source)
+            return _coconut_tail_call(avg_precision_score, self)  #178 (line in Coconut source)
+        else:  #179 (line in Coconut source)
+            return _coconut_tail_call(trapezoid, getattr(self, mode), x=self.weights)  #180 (line in Coconut source)
 
 # def PPV(Yt:PredThres,Pt:PredThres) = TP/PP
 # def NPV(Yt:PredThres,Pt:PredThres) = TN/PN
@@ -3275,85 +3282,85 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
 # def TNR(Yt:PredThres,Pt:PredThres) = _bool_contract(~Pt,~Yt)
 
 
-_coconut_call_set_names(Contingent)  #180 (line in Coconut source)
-@_coconut_tco  #180 (line in Coconut source)
-def recall(Y  # type: Contingent  #180 (line in Coconut source)
-    ):  #180 (line in Coconut source)
+_coconut_call_set_names(Contingent)  #187 (line in Coconut source)
+@_coconut_tco  #187 (line in Coconut source)
+def recall(Y  # type: Contingent  #187 (line in Coconut source)
+    ):  #187 (line in Coconut source)
 # type: (...) -> ProbThres
     """ True Positive Rate
-    """  #182 (line in Coconut source)
-    return _coconut_tail_call(Y.TPR.filled, 1.)  #183 (line in Coconut source)
+    """  #189 (line in Coconut source)
+    return _coconut_tail_call(Y.TPR.filled, 1.)  #190 (line in Coconut source)
 
 
 
-@_coconut_tco  #186 (line in Coconut source)
-def precision(Y  # type: Contingent  #186 (line in Coconut source)
-    ):  #186 (line in Coconut source)
+@_coconut_tco  #193 (line in Coconut source)
+def precision(Y  # type: Contingent  #193 (line in Coconut source)
+    ):  #193 (line in Coconut source)
 # type: (...) -> ProbThres
     """ Positive Predictive Value
-    """  #188 (line in Coconut source)
-    return _coconut_tail_call(Y.PPV.filled, 1.)  #189 (line in Coconut source)
+    """  #195 (line in Coconut source)
+    return _coconut_tail_call(Y.PPV.filled, 1.)  #196 (line in Coconut source)
 
 
 
-@_coconut_tco  #192 (line in Coconut source)
-def f_beta(beta,  # type: float  #192 (line in Coconut source)
-    Y  # type: Contingent  #192 (line in Coconut source)
-    ):  #192 (line in Coconut source)
+@_coconut_tco  #199 (line in Coconut source)
+def f_beta(beta,  # type: float  #199 (line in Coconut source)
+    Y  # type: Contingent  #199 (line in Coconut source)
+    ):  #199 (line in Coconut source)
 # type: (...) -> ProbThres
     """F_beta score
 
     weighted harmonic mean of precision and recall, with beta-times
     more bias for recall.
-    """  #197 (line in Coconut source)
-    top = (1 + beta**2) * Y.PPV * Y.TPR  #198 (line in Coconut source)
-    bottom = beta**2 * Y.PPV + Y.TPR  #199 (line in Coconut source)
+    """  #204 (line in Coconut source)
+    top = (1 + beta**2) * Y.PPV * Y.TPR  #205 (line in Coconut source)
+    bottom = beta**2 * Y.PPV + Y.TPR  #206 (line in Coconut source)
 
-    return _coconut_tail_call(np.ma.divide(top, bottom).filled, 0.)  #201 (line in Coconut source)
+    return _coconut_tail_call(np.ma.divide(top, bottom).filled, 0.)  #208 (line in Coconut source)
 
 
-@_coconut_tco  #203 (line in Coconut source)
-def F1(Y  # type: Contingent  #203 (line in Coconut source)
-    ):  #203 (line in Coconut source)
+@_coconut_tco  #210 (line in Coconut source)
+def F1(Y  # type: Contingent  #210 (line in Coconut source)
+    ):  #210 (line in Coconut source)
 # type: (...) -> ProbThres
     """partially applied f_beta with beta=1 (equal/no bias)
-    """  #205 (line in Coconut source)
-    return _coconut_tail_call(f_beta, 1., Y)  #206 (line in Coconut source)
+    """  #212 (line in Coconut source)
+    return _coconut_tail_call(f_beta, 1., Y)  #213 (line in Coconut source)
 
 
 
-def matthews_corrcoef(Y  # type: Contingent  #209 (line in Coconut source)
-    ):  #209 (line in Coconut source)
+def matthews_corrcoef(Y  # type: Contingent  #216 (line in Coconut source)
+    ):  #216 (line in Coconut source)
 # type: (...) -> ProbThres
     """ Matthew's Correlation Coefficient (MCC)
 
     Widely considered the most fair/least bias metric for imbalanced
     classification tasks.
-    """  #214 (line in Coconut source)
-    _coconut_where_m_0 = np.vstack([Y.TPR, Y.TNR, Y.PPV, Y.NPV])  #216 (line in Coconut source)
-    _coconut_where_l_0 = np.sqrt(_coconut_where_m_0).prod(axis=0)  #217 (line in Coconut source)
-    _coconut_where_r_0 = np.sqrt(1 - _coconut_where_m_0).prod(axis=0)  #218 (line in Coconut source)
+    """  #221 (line in Coconut source)
+    _coconut_where_m_0 = np.vstack([Y.TPR, Y.TNR, Y.PPV, Y.NPV])  #223 (line in Coconut source)
+    _coconut_where_l_0 = np.sqrt(_coconut_where_m_0).prod(axis=0)  #224 (line in Coconut source)
+    _coconut_where_r_0 = np.sqrt(1 - _coconut_where_m_0).prod(axis=0)  #225 (line in Coconut source)
 # return 1-cdist(Y.y_pred, Y.y_true, "correlation")[:,0]
 
-    return (_coconut_where_l_0 - _coconut_where_r_0).filled(0)  #221 (line in Coconut source)
+    return (_coconut_where_l_0 - _coconut_where_r_0).filled(0)  #228 (line in Coconut source)
 
-@_coconut_tco  #221 (line in Coconut source)
-def fowlkes_mallows(Y  # type: Contingent  #221 (line in Coconut source)
-    ):  #221 (line in Coconut source)
+@_coconut_tco  #228 (line in Coconut source)
+def fowlkes_mallows(Y  # type: Contingent  #228 (line in Coconut source)
+    ):  #228 (line in Coconut source)
 # type: (...) -> ProbThres
     """ G, the geometric mean of precision and recall.
 
     commonly used in unsupervised cases where synthetic test-data
     has been made available (e.g. MENDR, clustering validation, etc.)
-    """  #226 (line in Coconut source)
-    return _coconut_tail_call(np.sqrt, recall(Y) * precision(Y))  #227 (line in Coconut source)
+    """  #233 (line in Coconut source)
+    return _coconut_tail_call(np.sqrt, recall(Y) * precision(Y))  #234 (line in Coconut source)
 
 
-@_coconut_tco  #229 (line in Coconut source)
-def avg_precision_score(Y  # type: Contingent  #229 (line in Coconut source)
-    ):  #229 (line in Coconut source)
+@_coconut_tco  #236 (line in Coconut source)
+def avg_precision_score(Y  # type: Contingent  #236 (line in Coconut source)
+    ):  #236 (line in Coconut source)
 # type: (...) -> float
-    return _coconut_tail_call(np.sum, np.diff(Y.recall[::-1], prepend=0) * Y.precision[::-1])  #230 (line in Coconut source)
+    return _coconut_tail_call(np.sum, np.diff(Y.recall[::-1], prepend=0) * Y.precision[::-1])  #237 (line in Coconut source)
 
 # def precision(y_true, y_pred):
 #     TP,FP,TN,FN = _retrieval_square(y_true, p_pred)

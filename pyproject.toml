@@ -33,3 +33,6 @@ dev = [
     "pytest>=9.0.1",
     "rich[jupyter]>=14.2.0",
 ]
+
+[tool.uv]
+package=true

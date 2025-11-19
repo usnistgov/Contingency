@@ -69,7 +69,7 @@ def test_from_scalar(y_Y):
     else:
         M = Contingent.from_scalar(y_true, y_pred) 
         assert M.mcc.dtype == 'float'   # collapsed to scalar
-        # assert  np.all(M.F <= M.G)      # harm. mean <= geom. mean
+        np.testing.assert_array_less(M.F, M.G+1e-5)      # harm. mean <= geom. mean
 
 
 
