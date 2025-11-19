@@ -14,6 +14,11 @@ dependencies = [
     "scipy>=1.16.3",
 ]
 
+[project.optional-dependencies]
+plot = [
+    "matplotlib>=3.10.6",
+]
+
 [build-system]
 requires = ["uv_build>=0.9.10,<0.10.0"]
 build-backend = "uv_build"
@@ -24,5 +29,7 @@ dev = [
     "coconut-develop[kernel]>=3.1.2.post0.dev7",
     "cpyparsing>=2.4.7.2.4.1",
     "hypothesis[numpy]>=6.148.1",
+    "ipykernel>=7.1.0",
     "pytest>=9.0.1",
+    "rich[jupyter]>=14.2.0",
 ]
