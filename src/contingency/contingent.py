@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x184cbc46
+# __coconut_hash__ = 0x4abc7eed
 
 # Compiled with Coconut version 3.1.2-post_dev7
 
@@ -3183,7 +3183,7 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
     def from_scalar(cls,  # type: Type[_coconut_typevar_T_0]  #107 (line in Coconut source)
         y_true,  # type: PredProb  #107 (line in Coconut source)
         x,  # type: _coconut.typing.Optional[PredProb]  #107 (line in Coconut source)
-        subsample_factor=None  # type: _coconut.typing.Optional[int]  #107 (line in Coconut source)
+        subsamples=None  # type: _coconut.typing.Optional[int]  #107 (line in Coconut source)
         ):  #107 (line in Coconut source)
 # type: (...) -> _coconut.typing.Optional[_coconut_typevar_T_0]
         """ take scalar predictions and generate (batched) Contingent
@@ -3205,8 +3205,8 @@ class Contingent(_coconut.object):  #48 (line in Coconut source)
             warnings.warn("`None` value recieved, passing the buck...")  #129 (line in Coconut source)
             return None  #130 (line in Coconut source)
         p, x_p = minmax_tf(x)  #131 (line in Coconut source)
-        if subsample_factor:  #132 (line in Coconut source)
-            x_p = np.interp(np.linspace(0, 1, x_p.shape[0] // subsample_factor), np.linspace(0, 1, x_p.shape[0]), x_p)  #133 (line in Coconut source)
+        if subsamples:  #132 (line in Coconut source)
+            p = np.interp(np.linspace(0, 1, subsamples), np.linspace(0, 1, p.shape[0]), p)  #133 (line in Coconut source)
         y_preds = np.less_equal.outer(p, x_p)  #138 (line in Coconut source)
 
         return _coconut_tail_call(cls, y_true, y_preds, weights=p)  #140 (line in Coconut source)

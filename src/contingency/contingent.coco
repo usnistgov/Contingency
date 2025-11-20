@@ -108,7 +108,7 @@ class Contingent:
         cls: Type[T],
         y_true: PredProb,
         x:PredProb?,
-        subsample_factor:int?=None
+        subsamples:int?=None
     )->T?:
         """ take scalar predictions and generate (batched) Contingent
 
@@ -129,11 +129,11 @@ class Contingent:
             warnings.warn("`None` value recieved, passing the buck...")
             return None
         p, x_p = minmax_tf(x)
-        if subsample_factor:
-            x_p = np.interp(
-                np.linspace(0,1,x_p.shape[0]//subsample_factor),
-                np.linspace(0,1,x_p.shape[0]),
-                x_p
+        if subsamples:
+            p = np.interp(
+                np.linspace(0,1,subsamples),
+                np.linspace(0,1,p.shape[0]),
+                p
             )
         y_preds = np.less_equal.outer(p,x_p)
 
