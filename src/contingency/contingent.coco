@@ -66,22 +66,22 @@ class Contingent:
 
     weights: Num[nda, '*#batch']|None = None
 
-    TP: Num = field(init=False)
-    FP: Num = field(init=False)
-    FN: Num = field(init=False)
-    TN: Num = field(init=False)
+    TP: Num[nda, "..."] = field(init=False)
+    FP: Num[nda, "..."] = field(init=False)
+    FN: Num[nda, "..."] = field(init=False)
+    TN: Num[nda, "..."] = field(init=False)
 
 
-    PP: Num = field(init=False)
-    PN: Num = field(init=False)
-    P: Num = field(init=False)
-    N: Num = field(init=False)
+    PP: Num[nda, "..."] = field(init=False)
+    PN: Num[nda, "..."] = field(init=False)
+    P: Num[nda, "..."] = field(init=False)
+    N: Num[nda, "..."] = field(init=False)
 
 
-    PPV: Num = field(init=False)
-    NPV: Num = field(init=False)
-    TPR: Num = field(init=False)
-    TNR: Num = field(init=False)
+    PPV: Num[nda, "..."] = field(init=False)
+    NPV: Num[nda, "..."] = field(init=False)
+    TPR: Num[nda, "..."] = field(init=False)
+    TNR: Num[nda, "..."] = field(init=False)
 
     def __post_init__(self):
         self.y_true = np.atleast_2d(self.y_true)
