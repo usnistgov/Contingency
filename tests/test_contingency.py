@@ -10,7 +10,7 @@ from typing import get_args
 #     from contingency import Contingent
 
 from contingency import Contingent
-from contingency.types import ScoreOptions
+from contingency.contingent import ScoreOptions
 
 # import warnings
 # warnings.filterwarnings("error", category=UserWarning)
@@ -75,7 +75,7 @@ def test_from_scalar(y_Y):
 
 @given(
     make_true_prob(),
-    st.sampled_from(get_args(ScoreOptions.__value__))
+    st.sampled_from(get_args(ScoreOptions))
 )
 def test_expected(y_Y, mode):
     y_true, y_pred = y_Y

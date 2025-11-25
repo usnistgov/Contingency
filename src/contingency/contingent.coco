@@ -4,9 +4,9 @@ from numpy import ndarray as nda
 from scipy.stats import ecdf
 from scipy.integrate import trapezoid
 
+from typing import Literal
 from jaxtyping import Bool, Num, jaxtyped
 from beartype import beartype as typechecker
-from .types import ScoreOptions, PredProb, ProbThres
 from dataclasses import dataclass, field
 from sklearn.preprocessing import minmax_scale
 import warnings
@@ -14,6 +14,20 @@ import warnings
 __all__ = [
     "Contingent",
 ]
+
+type ScoreOptions = Literal[
+    'F',
+    'F2',
+    'G',
+    'recall',
+    'precision',
+    'mcc',
+    'aps'
+]
+
+type PredProb = Num[nda, 'features']
+type ProbThres = Num[nda, '*#batch']
+type PredThres = Bool[nda, '*#batch features']
 
 def quantile_tf(x:PredProb)-> (ProbThres,PredProb):
     cdf = ecdf(x).cdf
