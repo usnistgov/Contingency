@@ -30,8 +30,10 @@ dev = [
     "cpyparsing>=2.4.7.2.4.1",
     "hypothesis[numpy]>=6.148.1",
     "ipykernel>=7.1.0",
+    "mkdocstrings-python>=2.0.1",
     "pytest>=9.0.1",
     "rich[jupyter]>=14.2.0",
+    "zensical>=0.0.20",
 ]
 
 [tool.uv]

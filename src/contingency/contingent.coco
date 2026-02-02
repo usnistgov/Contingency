@@ -199,22 +199,41 @@ class Contingent:
 # def TNR(Yt:PredThres,Pt:PredThres) = _bool_contract(~Pt,~Yt)
 
 def recall(Y:Contingent)->ProbThres:
-    """ True Positive Rate
+    """True Positive Rate
+
+    Args:
+      Y:Contingent: 
+
+    Returns:
+
     """
     return Y.TPR.filled(1.)
 
 
 def precision(Y:Contingent)->ProbThres:
-    """ Positive Predictive Value
+    """Positive Predictive Value
+
+    Args:
+      Y:Contingent: 
+
+    Returns:
+
     """
     return Y.PPV.filled(1.)
 
 
 def f_beta(beta:float, Y:Contingent)-> ProbThres:
     """F_beta score
-
+    
     weighted harmonic mean of precision and recall, with beta-times
     more bias for recall.
+
+    Args:
+      beta:float: 
+      Y:Contingent: 
+
+    Returns:
+
     """
     top = (1+beta**2)*Y.PPV*Y.TPR
     bottom = beta**2*Y.PPV + Y.TPR
@@ -248,6 +267,14 @@ def fowlkes_mallows(Y:Contingent)->ProbThres:
     return np.sqrt(recall(Y)*precision(Y))
 
 def avg_precision_score(Y:Contingent)->float:
+    """
+
+    Args:
+      Y:Contingent: 
+
+    Returns: float
+
+    """
     return np.sum(np.diff(Y.recall[::-1], prepend=0) * Y.precision[::-1])
 
 # def precision(y_true, y_pred):
