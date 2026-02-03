@@ -4,7 +4,7 @@ stages:
 variables:
   UV_VERSION: "0.9.28"
   PYTHON_VERSION: "3.12"
-  BASE_LAYER: bookworm-slim
+  BASE_LAYER: alpine
   # GitLab CI creates a separate mountpoint for the build directory,
   # so we need to copy instead of using hard links.
   UV_LINK_MODE: copy
@@ -12,6 +12,8 @@ variables:
 zensical:
   image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_VERSION-$BASE_LAYER
   stage: pages
+  before_script:
+    - apk add g++
   script:
     - uv sync
     - uv run zensical build
