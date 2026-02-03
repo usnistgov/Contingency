@@ -13,7 +13,7 @@ zensical:
   image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_VERSION-$BASE_LAYER
   stage: pages
   before_script:
-    - apk add g++
+    - apk add g++ build-base linux-headers
   script:
     - uv sync
     - uv run zensical build
