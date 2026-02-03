@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# __coconut_hash__ = 0x3e066e24
+# __coconut_hash__ = 0x845b27b9
 
 # Compiled with Coconut version 3.1.2-post_dev7
 
@@ -3248,49 +3248,68 @@ class Contingent(_coconut.object):  #62 (line in Coconut source)
 
     @_coconut_tco  #158 (line in Coconut source)
     def f_beta(self, beta=1):  #158 (line in Coconut source)
-        return _coconut_tail_call(f_beta, beta, self)  #158 (line in Coconut source)
+        """Fᵦ score
 
-
-    @property  #160 (line in Coconut source)
-    @_coconut_tco  #161 (line in Coconut source)
-    def F2(self):  #161 (line in Coconut source)
-        return _coconut_tail_call(f_beta, 2., self)  #161 (line in Coconut source)
-
-
-    @property  #163 (line in Coconut source)
-    @_coconut_tco  #164 (line in Coconut source)
-    def F(self):  #164 (line in Coconut source)
-        return _coconut_tail_call(F1, self)  #164 (line in Coconut source)
+        weighted harmonic mean of precision and recall, with β-times
+        more bias for recall.
+        """  #163 (line in Coconut source)
+        return _coconut_tail_call(f_beta, beta, self)  #164 (line in Coconut source)
 
 
     @property  #166 (line in Coconut source)
     @_coconut_tco  #167 (line in Coconut source)
-    def recall(self):  #167 (line in Coconut source)
-        return _coconut_tail_call(recall, self)  #167 (line in Coconut source)
+    def F2(self):  #167 (line in Coconut source)
+        """F₂ harmonic mean with recall weighted 2x over precision"""  #168 (line in Coconut source)
+        return _coconut_tail_call(f_beta, 2., self)  #169 (line in Coconut source)
 
 
-    @property  #169 (line in Coconut source)
-    @_coconut_tco  #170 (line in Coconut source)
-    def precision(self):  #170 (line in Coconut source)
-        return _coconut_tail_call(precision, self)  #170 (line in Coconut source)
+    @property  #171 (line in Coconut source)
+    @_coconut_tco  #172 (line in Coconut source)
+    def F(self):  #172 (line in Coconut source)
+        """F₁ score (harmonic mean of recall, precision)"""  #173 (line in Coconut source)
+        return _coconut_tail_call(F1, self)  #174 (line in Coconut source)
 
 
-    @property  #172 (line in Coconut source)
-    @_coconut_tco  #173 (line in Coconut source)
-    def mcc(self):  #173 (line in Coconut source)
-        return _coconut_tail_call(matthews_corrcoef, self)  #173 (line in Coconut source)
+    @property  #176 (line in Coconut source)
+    @_coconut_tco  #177 (line in Coconut source)
+    def recall(self):  #177 (line in Coconut source)
+        """i.e. True Positive Rate TP/(TP+FN)"""  #178 (line in Coconut source)
+        return _coconut_tail_call(recall, self)  #179 (line in Coconut source)
 
 
-    @property  #175 (line in Coconut source)
-    @_coconut_tco  #176 (line in Coconut source)
-    def G(self):  #176 (line in Coconut source)
-        return _coconut_tail_call(fowlkes_mallows, self)  #176 (line in Coconut source)
+    @property  #181 (line in Coconut source)
+    @_coconut_tco  #182 (line in Coconut source)
+    def precision(self):  #182 (line in Coconut source)
+        """i.e. Positive Predictive Value TP/(TP+FP)"""  #183 (line in Coconut source)
+        return _coconut_tail_call(precision, self)  #184 (line in Coconut source)
 
 
-    @typechecker  #178 (line in Coconut source)
-    @_coconut_tco  #179 (line in Coconut source)
-    def expected(self, mode='aps'  # type: ScoreOptions  #179 (line in Coconut source)
-        ):  #179 (line in Coconut source)
+    @property  #186 (line in Coconut source)
+    @_coconut_tco  #187 (line in Coconut source)
+    def mcc(self):  #187 (line in Coconut source)
+        """ Matthew's Correlation Coefficient (MCC)
+
+        Widely considered the most fair/least bias metric for imbalanced
+        classification tasks.
+        """  #192 (line in Coconut source)
+        return _coconut_tail_call(matthews_corrcoef, self)  #193 (line in Coconut source)
+
+
+    @property  #195 (line in Coconut source)
+    @_coconut_tco  #196 (line in Coconut source)
+    def G(self):  #196 (line in Coconut source)
+        """ Fowlkes-Mallows, the geometric mean of precision and recall.
+
+        commonly used in unsupervised cases where synthetic test-data
+        has been made available (e.g. MENDR, clustering validation, etc.)
+        """  #201 (line in Coconut source)
+        return _coconut_tail_call(fowlkes_mallows, self)  #202 (line in Coconut source)
+
+
+    @typechecker  #204 (line in Coconut source)
+    @_coconut_tco  #205 (line in Coconut source)
+    def expected(self, mode='aps'  # type: ScoreOptions  #205 (line in Coconut source)
+        ):  #205 (line in Coconut source)
 # type: (...) -> float
         """
         A convenience function to calculate the expected value of a score.
@@ -3302,11 +3321,11 @@ class Contingent(_coconut.object):  #62 (line in Coconut source)
 
         Parameters:
             mode: available scores that can be aggregated over the y_pred probabilities
-        """  #190 (line in Coconut source)
-        if mode == 'aps':  #191 (line in Coconut source)
-            return _coconut_tail_call(avg_precision_score, self)  #192 (line in Coconut source)
-        else:  #193 (line in Coconut source)
-            return _coconut_tail_call(trapezoid, getattr(self, mode), x=self.weights)  #194 (line in Coconut source)
+        """  #216 (line in Coconut source)
+        if mode == 'aps':  #217 (line in Coconut source)
+            return _coconut_tail_call(avg_precision_score, self)  #218 (line in Coconut source)
+        else:  #219 (line in Coconut source)
+            return _coconut_tail_call(trapezoid, getattr(self, mode), x=self.weights)  #220 (line in Coconut source)
 
 # def PPV(Yt:PredThres,Pt:PredThres) = TP/PP
 # def NPV(Yt:PredThres,Pt:PredThres) = TN/PN
@@ -3314,96 +3333,70 @@ class Contingent(_coconut.object):  #62 (line in Coconut source)
 # def TNR(Yt:PredThres,Pt:PredThres) = _bool_contract(~Pt,~Yt)
 
 
-_coconut_call_set_names(Contingent)  #201 (line in Coconut source)
-@_coconut_tco  #201 (line in Coconut source)
-def recall(Y  # type: Contingent  #201 (line in Coconut source)
-    ):  #201 (line in Coconut source)
+_coconut_call_set_names(Contingent)  #227 (line in Coconut source)
+@_coconut_tco  #227 (line in Coconut source)
+def recall(Y  # type: Contingent  #227 (line in Coconut source)
+    ):  #227 (line in Coconut source)
 # type: (...) -> ProbThres
-    """True Positive Rate
-
-    Args:
-      Y:Contingent: 
-
-    Returns:
-
-    """  #209 (line in Coconut source)
-    return _coconut_tail_call(Y.TPR.filled, 1.)  #210 (line in Coconut source)
+    """True Positive Rate"""  #228 (line in Coconut source)
+    return _coconut_tail_call(Y.TPR.filled, 1.)  #229 (line in Coconut source)
 
 
 
-@_coconut_tco  #213 (line in Coconut source)
-def precision(Y  # type: Contingent  #213 (line in Coconut source)
-    ):  #213 (line in Coconut source)
+@_coconut_tco  #232 (line in Coconut source)
+def precision(Y  # type: Contingent  #232 (line in Coconut source)
+    ):  #232 (line in Coconut source)
 # type: (...) -> ProbThres
-    """Positive Predictive Value
-
-    Args:
-      Y:Contingent: 
-
-    Returns:
-
-    """  #221 (line in Coconut source)
-    return _coconut_tail_call(Y.PPV.filled, 1.)  #222 (line in Coconut source)
+    """Positive Predictive Value"""  #233 (line in Coconut source)
+    return _coconut_tail_call(Y.PPV.filled, 1.)  #234 (line in Coconut source)
 
 
 
-@_coconut_tco  #225 (line in Coconut source)
-def f_beta(beta,  # type: float  #225 (line in Coconut source)
-    Y  # type: Contingent  #225 (line in Coconut source)
-    ):  #225 (line in Coconut source)
+@_coconut_tco  #237 (line in Coconut source)
+def f_beta(beta,  # type: float  #237 (line in Coconut source)
+    Y  # type: Contingent  #237 (line in Coconut source)
+    ):  #237 (line in Coconut source)
 # type: (...) -> ProbThres
     """F_beta score
     
     weighted harmonic mean of precision and recall, with beta-times
     more bias for recall.
+    """  #242 (line in Coconut source)
+    top = (1 + beta**2) * Y.PPV * Y.TPR  #243 (line in Coconut source)
+    bottom = beta**2 * Y.PPV + Y.TPR  #244 (line in Coconut source)
 
-    Args:
-      beta:float: 
-      Y:Contingent: 
-
-    Returns:
-
-    """  #237 (line in Coconut source)
-    top = (1 + beta**2) * Y.PPV * Y.TPR  #238 (line in Coconut source)
-    bottom = beta**2 * Y.PPV + Y.TPR  #239 (line in Coconut source)
-
-    return _coconut_tail_call(np.ma.divide(top, bottom).filled, 0.)  #241 (line in Coconut source)
+    return _coconut_tail_call(np.ma.divide(top, bottom).filled, 0.)  #246 (line in Coconut source)
 
 
-@_coconut_tco  #243 (line in Coconut source)
-def F1(Y  # type: Contingent  #243 (line in Coconut source)
-    ):  #243 (line in Coconut source)
+@_coconut_tco  #248 (line in Coconut source)
+def F1(Y  # type: Contingent  #248 (line in Coconut source)
+    ):  #248 (line in Coconut source)
 # type: (...) -> ProbThres
     """partially applied f_beta with beta=1 (equal/no bias)
-    """  #245 (line in Coconut source)
-    return _coconut_tail_call(f_beta, 1., Y)  #246 (line in Coconut source)
+    """  #250 (line in Coconut source)
+    return _coconut_tail_call(f_beta, 1., Y)  #251 (line in Coconut source)
 
 
 
-def matthews_corrcoef(Y  # type: Contingent  #249 (line in Coconut source)
-    ):  #249 (line in Coconut source)
+def matthews_corrcoef(Y  # type: Contingent  #254 (line in Coconut source)
+    ):  #254 (line in Coconut source)
 # type: (...) -> ProbThres
     """ Matthew's Correlation Coefficient (MCC)
 
     Widely considered the most fair/least bias metric for imbalanced
     classification tasks.
-    """  #254 (line in Coconut source)
-    _coconut_where_m_0 = np.vstack([Y.TPR, Y.TNR, Y.PPV, Y.NPV])  #256 (line in Coconut source)
-    _coconut_where_l_0 = np.sqrt(_coconut_where_m_0).prod(axis=0)  #257 (line in Coconut source)
-    _coconut_where_r_0 = np.sqrt(1 - _coconut_where_m_0).prod(axis=0)  #258 (line in Coconut source)
+    """  #259 (line in Coconut source)
+    _coconut_where_m_0 = np.vstack([Y.TPR, Y.TNR, Y.PPV, Y.NPV])  #261 (line in Coconut source)
+    _coconut_where_l_0 = np.sqrt(_coconut_where_m_0).prod(axis=0)  #262 (line in Coconut source)
+    _coconut_where_r_0 = np.sqrt(1 - _coconut_where_m_0).prod(axis=0)  #263 (line in Coconut source)
 # return 1-cdist(Y.y_pred, Y.y_true, "correlation")[:,0]
 
-    return (_coconut_where_l_0 - _coconut_where_r_0).filled(0)  #261 (line in Coconut source)
+    return (_coconut_where_l_0 - _coconut_where_r_0).filled(0)  #266 (line in Coconut source)
 
-@_coconut_tco  #261 (line in Coconut source)
-def fowlkes_mallows(Y  # type: Contingent  #261 (line in Coconut source)
-    ):  #261 (line in Coconut source)
+@_coconut_tco  #266 (line in Coconut source)
+def fowlkes_mallows(Y  # type: Contingent  #266 (line in Coconut source)
+    ):  #266 (line in Coconut source)
 # type: (...) -> ProbThres
-    """ G, the geometric mean of precision and recall.
-
-    commonly used in unsupervised cases where synthetic test-data
-    has been made available (e.g. MENDR, clustering validation, etc.)
-    """  #266 (line in Coconut source)
     return _coconut_tail_call(np.sqrt, recall(Y) * precision(Y))  #267 (line in Coconut source)
 
 
@@ -3411,15 +3404,8 @@ def fowlkes_mallows(Y  # type: Contingent  #261 (line in Coconut source)
 def avg_precision_score(Y  # type: Contingent  #269 (line in Coconut source)
     ):  #269 (line in Coconut source)
 # type: (...) -> float
-    """
-
-    Args:
-      Y:Contingent: 
-
-    Returns: float
-
-    """  #277 (line in Coconut source)
-    return _coconut_tail_call(np.sum, np.diff(Y.recall[::-1], prepend=0) * Y.precision[::-1])  #278 (line in Coconut source)
+    """ """  #270 (line in Coconut source)
+    return _coconut_tail_call(np.sum, np.diff(Y.recall[::-1], prepend=0) * Y.precision[::-1])  #271 (line in Coconut source)
 
 # def precision(y_true, y_pred):
 #     TP,FP,TN,FN = _retrieval_square(y_true, p_pred)

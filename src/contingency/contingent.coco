@@ -155,25 +155,51 @@ class Contingent:
 
 
 
-    def f_beta(self, beta=1)= f_beta(beta, self)
+    def f_beta(self, beta=1):
+        """Fᵦ score
+
+        weighted harmonic mean of precision and recall, with β-times
+        more bias for recall.
+        """
+        return f_beta(beta, self)
 
     @property
-    def F2(self) = f_beta(2., self)
+    def F2(self):
+        """F₂ harmonic mean with recall weighted 2x over precision"""
+        return f_beta(2., self)
     
     @property
-    def F(self) = F1(self)
+    def F(self) :
+        """F₁ score (harmonic mean of recall, precision)"""
+        return F1(self)
 
     @property
-    def recall(self)= recall(self)
+    def recall(self):
+        """i.e. True Positive Rate TP/(TP+FN)"""
+        return recall(self)
 
     @property
-    def precision(self)=precision(self)
+    def precision(self):
+        """i.e. Positive Predictive Value TP/(TP+FP)"""
+        return precision(self)
 
     @property
-    def mcc(self)=matthews_corrcoef(self)
+    def mcc(self):
+        """ Matthew's Correlation Coefficient (MCC)
+
+        Widely considered the most fair/least bias metric for imbalanced
+        classification tasks.
+        """
+        return matthews_corrcoef(self)
 
     @property
-    def G(self) = fowlkes_mallows(self)
+    def G(self):
+        """ Fowlkes-Mallows, the geometric mean of precision and recall.
+
+        commonly used in unsupervised cases where synthetic test-data
+        has been made available (e.g. MENDR, clustering validation, etc.)
+        """
+        return fowlkes_mallows(self)
 
     @typechecker
     def expected(self, mode: ScoreOptions='aps')->float:
@@ -199,26 +225,12 @@ class Contingent:
 # def TNR(Yt:PredThres,Pt:PredThres) = _bool_contract(~Pt,~Yt)
 
 def recall(Y:Contingent)->ProbThres:
-    """True Positive Rate
-
-    Args:
-      Y:Contingent: 
-
-    Returns:
-
-    """
+    """True Positive Rate"""
     return Y.TPR.filled(1.)
 
 
 def precision(Y:Contingent)->ProbThres:
-    """Positive Predictive Value
-
-    Args:
-      Y:Contingent: 
-
-    Returns:
-
-    """
+    """Positive Predictive Value"""
     return Y.PPV.filled(1.)
 
 
@@ -227,13 +239,6 @@ def f_beta(beta:float, Y:Contingent)-> ProbThres:
     
     weighted harmonic mean of precision and recall, with beta-times
     more bias for recall.
-
-    Args:
-      beta:float: 
-      Y:Contingent: 
-
-    Returns:
-
     """
     top = (1+beta**2)*Y.PPV*Y.TPR
     bottom = beta**2*Y.PPV + Y.TPR
@@ -259,22 +264,10 @@ def matthews_corrcoef(Y:Contingent)->ProbThres:
     # return 1-cdist(Y.y_pred, Y.y_true, "correlation")[:,0]
 
 def fowlkes_mallows(Y:Contingent)->ProbThres:
-    """ G, the geometric mean of precision and recall.
-
-    commonly used in unsupervised cases where synthetic test-data
-    has been made available (e.g. MENDR, clustering validation, etc.)
-    """
     return np.sqrt(recall(Y)*precision(Y))
 
 def avg_precision_score(Y:Contingent)->float:
-    """
-
-    Args:
-      Y:Contingent: 
-
-    Returns: float
-
-    """
+    """ """
     return np.sum(np.diff(Y.recall[::-1], prepend=0) * Y.precision[::-1])
 
 # def precision(y_true, y_pred):
