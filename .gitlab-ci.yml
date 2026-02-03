@@ -17,9 +17,12 @@ zensical:
   script:
     - uv sync
     - uv run zensical build
-    - mv site public
+    # - mv site public
   artifacts:
     paths:
-      - public
+      - site
+  pages:
+    # The folder that contains the files to be exposed at the Page URL
+    publish: site
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
