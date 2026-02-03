@@ -10,3 +10,4 @@ wheels/
 .venv
 .hypothesis
 src/contingency/__coconut_cache__
+site
