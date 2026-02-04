@@ -332,4 +332,22 @@ paths = ["src/contingency/"]
 [project.plugins.mkdocstrings.handlers.python.options]
 docstring_style = "google"
 inherited_members = true
-show_source = false
+# show_source = false
+backlinks = "tree"
+docstring_options = {ignore_init_summary = true}
+docstring_section_style = "list"
+# extensions = ["griffe_typingdoc",]
+filters = ["!^_", "^__"]
+heading_level = 1
+# merge_init_into_class = true
+parameter_headings = true
+separate_signature = true
+show_root_heading = true
+show_root_full_path = false
+show_signature_annotations = true
+show_source = true
+show_symbol_type_heading = true
+show_symbol_type_toc = true
+signature_crossrefs = true
+summary = true
+unwrap_annotated = true

@@ -11,3 +11,4 @@ wheels/
 .hypothesis
 src/contingency/__coconut_cache__
 site
+examples/.ipynb_checkpoints

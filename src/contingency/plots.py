@@ -2,12 +2,13 @@ import numpy as np
 
 try:
     import matplotlib.pyplot as plt
+    import matplotlib.axes
 except ImportError:
     _has_plot = False
 else:
     _has_plot = True
 
-def PR_contour(ax=None):
+def PR_contour(ax:[matplotlib.axes.Axes|None]=None):
     """Generate a nice-looking contour plot for Precision vs. Recall
 
     REQUIRES optional [plot] dependencies!
