@@ -6,12 +6,12 @@ icon: lucide/house
 
 ![Image title](./images/logo.svg){ align=right }
 
-> _Fast, vectorized metrology with binary contingency counts._ 
+> _Fast, vectorized metrology with binary contingency counts._
 
 Rapidly calculate binary classifier metrics like MCC, F-Scores, and Average Precision Scores from scalar and binary predictions.
 
 For an overview of features and usage, see the [tutorial](getting-started/02-tutorial).  
-For more details about Contingency's performance and intended use-cases, see [Performance](getting-started/03-performance)
+For more details about Contingency's performance and intended use-cases, see [Performance](getting-started/03-performance).
 
 !!! example "Contact the PI"
 
