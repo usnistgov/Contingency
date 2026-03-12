@@ -1,5 +1,5 @@
 stages:
-  - pages
+  - install_and_deploy
 
 variables:
   UV_VERSION: "0.9.28"
@@ -9,13 +9,33 @@ variables:
   # so we need to copy instead of using hard links.
   UV_LINK_MODE: copy
 
-zensical:
+uv-setup:
+  stage: install_and_deploy
   image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_VERSION-$BASE_LAYER
-  stage: pages
+  variables:
+    UV_CACHE_DIR: .uv-cache
+  cache:
+    - key:
+        files:
+          - uv.lock
+      paths:
+        - $UV_CACHE_DIR
+
   before_script:
     - apk add g++ build-base linux-headers
   script:
     - uv sync
+    - uv cache prune --ci
+    # pytest:
+    #   stage: install_and_deploy
+    #   needs: ["uv-setup"]
+    #   script:
+    - uv run pytest "tests/test_contingency.py"
+
+    # zensical:
+    #   stage: install_and_deploy
+    #   needs: ["uv-setup"]
+    #   script:
     - uv run zensical build
     # - mv site public
   artifacts:
@@ -26,3 +46,4 @@ zensical:
     publish: site
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH

@@ -75,7 +75,7 @@ def test_from_scalar(y_Y):
 
 @given(
     make_true_prob(),
-    st.sampled_from(get_args(ScoreOptions))
+    st.sampled_from(get_args(ScoreOptions.__value__))
 )
 def test_expected(y_Y, mode):
     y_true, y_pred = y_Y

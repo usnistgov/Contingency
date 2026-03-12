@@ -1,0 +1,45 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Contingency
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Rachael
+    family-names: Sexton
+    email: rachael.sexton@nist.gov
+    affiliation: National Institute of Standards and Technology
+    orcid: "https://orcid.org/0000-0001-5904-2887"
+identifiers:
+  - type: doi
+    value: 10.18434/mds2-4079
+repository-code: "https://github.com/usnistgov/Contingency"
+url: "https://pages.nist.gov/contingency"
+repository: "https://datapub.nist.gov/od/id/mds2-4079"
+abstract: >-
+  Fast, vectorized metrology with binary contingency counts.
+  Rapidly calculate binary classifier metrics like MCC,
+  F-Scores, and Average Precision Scores from scalar and
+  binary predictions.
+keywords:
+  - binary classification
+  - classifier
+  - machine learning
+  - metrics
+  - performance
+  - experiments
+  - accuracy
+  - recall
+  - precision
+  - contingency table
+  - marginal counts
+  - error
+  - type I
+  - type II
+  - vectorized
+  - batched
+  - approximation
+license: NIST-Software

@@ -1,18 +1,61 @@
 [project]
 name = "contingency"
 version = "0.2.1"
-description = "Add your description here"
+description = "Fast, vectorized metrology with binary contingency counts."
 readme = "README.md"
 authors = [
     { name = "Rachael T. Sexton", email = "rachael.sexton@nist.gov" }
 ]
-requires-python = ">=3.11, <3.14"
+requires-python = ">=3.12, <3.14"
 dependencies = [
     "jaxtyping>=0.3.3",
     "numpy>=2.3.5",
-    "scikit-learn>=1.7.2",
     "scipy>=1.16.3",
 ]
+license = "NIST-Software"
+license-files = ["LICENSE.md"]
+keywords = [
+    "binary classification",
+    "classifier",
+    "machine learning",
+    "metrics",
+    "performance",
+    "experiments",
+    "accuracy",
+    "recall",
+    "precision",
+    "contingency table",
+    "marginal counts",
+    "error",
+    "type I",
+    "type II",
+    "vectorized",
+    "batched",
+    "approximation",
+]
+classifiers = [
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[project.urls]
+source = "https://github.com/usnistgov/Contingency"
+documentation = "https://pages.nist.gov/contingency"
+homepage = "https://datapub.nist.gov/od/id/mds2-4079"
 
 [project.optional-dependencies]
 plot = [
@@ -33,8 +76,9 @@ dev = [
     "mkdocstrings-python>=2.0.1",
     "pytest>=9.0.1",
     "rich[jupyter]>=14.2.0",
+    "scikit-learn>=1.8.0",
     "zensical>=0.0.20",
 ]
 
 [tool.uv]
-package=true
+package = true
