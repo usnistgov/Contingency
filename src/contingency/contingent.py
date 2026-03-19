@@ -156,7 +156,7 @@ class Contingent:
         """
         # p, x_p = _quantile_tf(x)
         if x is None:
-            warnings.warn("`None` value received, passing the buck...")
+            warnings.warn("`None` value received, passing it on...", UserWarning)
             return None
         p, x_p = _minmax_tf(x)
         if subsamples:

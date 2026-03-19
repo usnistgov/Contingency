@@ -63,7 +63,7 @@ def make_true_prob(draw):
 def test_from_scalar(y_Y):
     y_true, y_pred = y_Y
     if y_pred is None:
-        with pytest.warns(UserWarning, match="`None` value recieved, passing the buck..."):
+        with pytest.warns(UserWarning, match=r"None"):
             M = Contingent.from_scalar(y_true, y_pred) 
         assert M is None
     else:
