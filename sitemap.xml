@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://pages.nist.gov/contingency/</loc>
+      </url>
+      <url>
+        <loc>https://pages.nist.gov/contingency/getting-started/01-installation/</loc>
+      </url>
+      <url>
+        <loc>https://pages.nist.gov/contingency/getting-started/02-tutorial/</loc>
+      </url>
+      <url>
+        <loc>https://pages.nist.gov/contingency/getting-started/03-performance/</loc>
+      </url>
+      <url>
+        <loc>https://pages.nist.gov/contingency/api/contingent/</loc>
+      </url>
+      <url>
+        <loc>https://pages.nist.gov/contingency/api/plotting/</loc>
+      </url>
 </urlset>
