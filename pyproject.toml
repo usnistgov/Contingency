@@ -6,9 +6,8 @@ readme = "README.md"
 authors = [
     { name = "Rachael T. Sexton", email = "rachael.sexton@nist.gov" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
-    "cpyparsing>=2.4.7.2.4.3",
     "jaxtyping>=0.3",
     "numpy>=2.3",
     "scipy>=1.16",
@@ -71,6 +70,7 @@ build-backend = "uv_build"
 dev = [
     "beartype>=0.22.5",
     "coconut-develop[kernel]>=3.1.2.post0.dev7",
+    "cpyparsing>=2.4.7.2.4.3",
     "hypothesis[numpy]>=6.148.1",
     "ipykernel>=7.1.0",
     "mkdocstrings-python>=2.0.1",
