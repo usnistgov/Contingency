@@ -1,5 +1,6 @@
 import numpy as np
 from numpy import ndarray as nda
+from numpy.ma import MaskedArray as mda
 # from sklearn.metrics import precision_recall_curve, fbeta_score
 from scipy.integrate import trapezoid
 
@@ -39,8 +40,9 @@ def _minmax_tf(
     x:Num[nda, 'feat'], tol:float=1e-5
 )-> tuple[Num[nda,'*#batch'], Num[nda, 'feat']]:
     xmin, xmax =tol, 1-tol
-    with np.errstate(divide='ignore', invalid='ignore'):
-        scale = np.nan_to_num((xmax-xmin)/np.ptp(x,axis=0))
+    # with np.errstate(divide='ignore', invalid='ignore'):
+    #     scale = np.nan_to_num((xmax-xmin)/np.ptp(x,axis=0))
+    scale = np.ma.filled(np.ma.divide(xmax - xmin, np.ptp(x, axis=0)),0.) # type:ignore
     x_p = scale*x + xmin - x.min(axis=0)*scale
     # x_p = minmax_scale(x, feature_range=(tol, 1 - tol))
     p = np.pad(np.unique(x_p), ((1,1)), constant_values=(0,1))
@@ -107,10 +109,10 @@ class Contingent:
     N: Num[nda, "..."] = field(init=False)
 
 
-    PPV: Num[nda, "..."] = field(init=False)
-    NPV: Num[nda, "..."] = field(init=False)
-    TPR: Num[nda, "..."] = field(init=False)
-    TNR: Num[nda, "..."] = field(init=False)
+    PPV: Num[mda, "..."] = field(init=False) # type: ignore
+    NPV: Num[mda, "..."] = field(init=False) # type: ignore
+    TPR: Num[mda, "..."] = field(init=False) # type: ignore
+    TNR: Num[mda, "..."] = field(init=False) # type: ignore
 
     def __post_init__(self):
         self.y_true = np.atleast_2d(self.y_true)
@@ -126,10 +128,10 @@ class Contingent:
         self.N = self.FP + self.TN
 
         # self.PPV = np.divide(self.TP, self.PP, out=np.ones_like(self.TP), where=self.PP!=0.)
-        self.PPV = np.ma.divide(self.TP, self.PP)
-        self.NPV = np.ma.divide(self.TN, self.PN)
-        self.TPR = np.ma.divide(self.TP, self.P)
-        self.TNR = np.ma.divide(self.TN, self.N)
+        self.PPV = np.ma.divide(self.TP, self.PP) # type: ignore
+        self.NPV = np.ma.divide(self.TN, self.PN) # type: ignore
+        self.TPR = np.ma.divide(self.TP, self.P) # type: ignore
+        self.TNR = np.ma.divide(self.TN, self.N) # type: ignore
 
 
     @classmethod
@@ -233,12 +235,12 @@ class Contingent:
 
 def recall(Y:Contingent)->ProbThres:
     """TP/(TP+FN) i.e. True Positive Rate"""
-    return Y.TPR.filled(1.)
+    return Y.TPR.filled(0.)
 
 
 def precision(Y:Contingent)->ProbThres:
     """TP/(TP+FP) i.e. Positive Predictive Value"""
-    return Y.PPV.filled(1.)
+    return Y.PPV.filled(0.)
 
 
 def f_beta(beta:float, Y:Contingent)-> ProbThres:
@@ -267,10 +269,13 @@ def matthews_corrcoef(Y:Contingent)->ProbThres:
     Widely considered the most fair/least bias metric for imbalanced
     classification tasks. [(Chico & Jurman, 2023)](https://doi.org/10.1186/s13040-023-00322-4)
     """
+
+    invalid = Y.TPR.mask | Y.TNR.mask | Y.PPV.mask | Y.NPV.mask
     m = np.vstack([Y.TPR,Y.TNR,Y.PPV,Y.NPV])
     l = np.sqrt(m).prod(axis=0)
     r = np.sqrt(1-m).prod(axis=0)
-    return (l - r).filled(0)
+    out = (l - r)
+    return np.ma.array(out, mask=invalid).filled(0.)  # type:ignore
     # return 1-cdist(Y.y_pred, Y.y_true, "correlation")[:,0]
 
 def fowlkes_mallows(Y:Contingent)->ProbThres:
